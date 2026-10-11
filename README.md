@@ -53,11 +53,18 @@ Photo path / description: Garbage pile overflowing near the market for a week
 Photo path / description: exit
 ```
 
+## Test Results (summary)
+Live runs with the Gemini API: streetlight (correct), drainage (correct), garbage (incorrect: workers collecting waste normally were flagged as a problem), illustration (incorrect: a drawing was treated as a real issue). Full details in `tests/test_cases.md`.
+
 ## Known Limitations
+- The AI classifies the *type* of scene but does not check whether a real problem is present.
+- Illustrations and non-photographic images can be accepted as real issues.
 - Department names are generic; real municipal bodies use city-specific names.
-- Classification quality depends on photo clarity; blurry or multi-issue photos may be misclassified.
 - Complaint drafts need the user to add location, date and name.
 - Command-line only; no web UI, database or multi-language support yet.
+
+## Roadmap
+See `docs/roadmap.md`.
 
 ## Tech Stack
 Python 3.13, Google Gemini API (`gemini-3.6-flash`), Pillow, python-dotenv.
